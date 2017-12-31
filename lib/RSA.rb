@@ -47,15 +47,25 @@ class RSA
 	while((d*e) % phi != 1)
 		d = rand(phi)
 	end
-	
+
+	resulted_values[2] = d
+
 	return resulted_values
    end
    
    def encrypt message
-	return (message.chars.map {|c| c.ord ** @e % @n}).join(",")
-   end
-   
-   def decrypt message
-	return (message.split(",").map {|c| (c.to_i ** @d % @n).chr}).join("")
-   end 
+		return (message.chars.map {|c| c.ord ** @e % @n}).join(",")
+	end
+
+	def decrypt message
+	 	return (message.split(",").map {|c| (c.to_i ** @d % @n).chr}).join("")
+	end  
 end
+#r = RSA.new(2231, 181, 1021)
+#result = r.new_key
+#puts result[0]
+#puts "\n"
+#puts result[1]
+#puts "\n"
+#puts result[2]
+#puts "\n"    zaspaaah
